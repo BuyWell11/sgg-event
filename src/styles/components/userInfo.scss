@@ -1,0 +1,16 @@
+.user-info {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+
+  .item-box{
+    display: flex;
+    flex-direction: column;
+    .items {
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+    }
+  }
+}

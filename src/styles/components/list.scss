@@ -1,0 +1,21 @@
+.list {
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
+  align-items: center;
+  padding: 4px;
+  border: black 1px solid;
+  border-radius: 20px;
+  height: 400px;
+  overflow: hidden;
+
+  &__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    gap: 4px;
+    width: 100%;
+    padding: 0 8px;
+  }
+}

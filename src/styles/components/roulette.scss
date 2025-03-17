@@ -1,0 +1,53 @@
+.roulette-container {
+  overflow: hidden;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.roulette {
+  display: flex;
+  transition: transform 3s ease-out;
+}
+
+.roulette.spinning {
+  animation: spin 3s linear infinite;
+}
+
+.roulette-item {
+  width: 200px; /* Фиксированная ширина */
+  height: 200px; /* Фиксированная высота */
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.roulette-item img {
+  width: 100px; /* Фиксированная ширина изображения */
+  height: 100px; /* Фиксированная высота изображения */
+  object-fit: cover; /* Сохраняет пропорции изображения */
+}
+
+@keyframes spin {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.vertical-line {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  width: 2px;
+  height: 200px;
+  background-color: red;
+  transform: translateX(-50%);
+  z-index: 10;
+}

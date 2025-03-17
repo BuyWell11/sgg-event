@@ -1,0 +1,18 @@
+@use "variables.module";
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 2px solid variables.$primary;
+  width: 100%;
+  height: 40px;
+  padding: 0 16px;
+  p {
+    color: variables.$primary;
+  }
+  div {
+    margin: 0 auto;
+  }
+}
