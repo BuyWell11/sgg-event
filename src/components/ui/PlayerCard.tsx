@@ -19,6 +19,9 @@ const PlayerCard = ({ user }: Props) => {
       <Text fontWeight="bold" textStyle="xl">
         {user.name}
       </Text>
+      <Text fontWeight="medium" textStyle="lg">
+        {user.game}
+      </Text>
     </button>
   );
 };

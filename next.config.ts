@@ -10,6 +10,8 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [{ hostname: 'static-cdn.jtvnw.net' }, { hostname: 'yt3.googleusercontent.com' }],
   },
+  basePath: '/sgg',
+  serverRuntimeConfig: {},
 };
 
 export default nextConfig;

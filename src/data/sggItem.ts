@@ -29,6 +29,8 @@ import sigma from '../../public/sggItems/sigma.png';
 import dogovor from '../../public/sggItems/dogovor.png';
 import duel from '../../public/sggItems/duel.png';
 import pixcel from '../../public/sggItems/pixcel.png';
+import gaming from '../../public/sggItems/gaming.png';
+import second from '../../public/sggItems/second.png';
 import { StaticImageData } from 'next/image';
 
 export type SggItem = {
@@ -114,6 +116,11 @@ const sggItems: SggItem[] = [
     description: 'Плюс 3 ролла с фанфиками',
   },
   {
+    name: 'Абсолютная игра',
+    logo: gaming,
+    description: 'Плюс 3 ролла с играми',
+  },
+  {
     name: 'Зеркало',
     logo: zerkalo,
     description: 'Отразить выпавший ролл на рандомного участника 1 раз за промежуток',
@@ -192,6 +199,11 @@ const sggItems: SggItem[] = [
     name: 'Пиксель Малевича',
     logo: pixcel,
     description: 'Пустышка',
+  },
+  {
+    name: 'Второй шанс',
+    logo: second,
+    description: 'При провале любого челленджа даётся право на ошибку',
   },
 ];
 

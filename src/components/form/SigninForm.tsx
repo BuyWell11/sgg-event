@@ -34,7 +34,7 @@ export default function SigninForm() {
   return (
     <form onSubmit={formik.handleSubmit} className={'form'}>
       <label htmlFor="username">Никнейм</label>
-      <input id="username" name="username" type="text" onChange={formik.handleChange} value={formik.values.name} />
+      <input id="username" name="username" type="text" onChange={formik.handleChange} value={formik.values.username} />
       {formik.touched.username && formik.errors.username ? <div className={'error-text'}>{formik.errors.username}</div> : null}
       <label htmlFor="password">Пароль</label>
       <input id="password" name="password" type="text" onChange={formik.handleChange} value={formik.values.password} />

@@ -30,6 +30,7 @@ export const UserService = {
         headers: {
           'Content-Type': 'application/json',
         },
+        cache: 'force-cache',
       });
 
       if (!response.ok) {
@@ -63,6 +64,26 @@ export const UserService = {
     }
   },
 
+  async deleteGame(id: string, gameId: string): Promise<SggUser> {
+    try {
+      const response = await fetch(PATH_BACKEND.users.root + '/' + id + '/games/' + gameId, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+      });
+
+      if (!response.ok) {
+        throw new Error(`Deleting game failed: ${response.statusText}`);
+      }
+
+      return (await response.json()) as SggUser;
+    } catch (error) {
+      throw new Error(`DELETE error: ${(error as Error).message}`);
+    }
+  },
+
   async addEvent(id: string, event: SggEventDTO): Promise<SggUser> {
     try {
       const response = await fetch(PATH_BACKEND.users.root + '/' + id + '/events', {
@@ -81,6 +102,26 @@ export const UserService = {
       return (await response.json()) as SggUser;
     } catch (error) {
       throw new Error(`PATCH error: ${(error as Error).message}`);
+    }
+  },
+
+  async deleteEvent(id: string, eventId: string): Promise<SggUser> {
+    try {
+      const response = await fetch(PATH_BACKEND.users.root + '/' + id + '/events/' + eventId, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+      });
+
+      if (!response.ok) {
+        throw new Error(`Adding event failed: ${response.statusText}`);
+      }
+
+      return (await response.json()) as SggUser;
+    } catch (error) {
+      throw new Error(`DELETE error: ${(error as Error).message}`);
     }
   },
 

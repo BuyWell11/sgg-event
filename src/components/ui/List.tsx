@@ -8,9 +8,11 @@ import ListItem from './ListItem';
 interface Props {
   items: Array<Game> | Array<SggEvent>;
   title: string;
+  editable?: boolean;
+  userId?: string;
 }
 
-export default function List({ items, title }: Props) {
+export default function List({ items, title, editable, userId }: Props) {
   if (items.length === 0) {
     return null;
   }
@@ -21,7 +23,7 @@ export default function List({ items, title }: Props) {
         {items
           .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
           .map((item) => (
-            <ListItem key={item.id} item={item} />
+            <ListItem key={item.id} item={item} editable={editable} userId={userId} />
           ))}
       </Box>
     </Box>

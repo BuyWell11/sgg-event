@@ -23,7 +23,7 @@ export default function AddGameForm({ session }: Props) {
       name: Yup.string().required('У игры должно быть название'),
       comment: Yup.string(),
     }),
-    onSubmit: (values) => {
+    onSubmit: (values, { resetForm }) => {
       const game: GameDTO = {
         name: values.name,
         comment: values.comment,
@@ -31,6 +31,7 @@ export default function AddGameForm({ session }: Props) {
       };
       UserService.addGame(session.user.id, game);
       update();
+      resetForm();
     },
   });
 

@@ -23,8 +23,8 @@ export default function Profile() {
         <UpdateUserForm session={session} />
       </Box>
       <Box className={'list-group'}>
-        <List title={'Игры'} items={session.user.games} />
-        <List title={'Ивенты'} items={session.user.events} />
+        <List title={'Игры'} items={session.user.games} editable={true} userId={session.user.id} />
+        <List title={'Ивенты'} items={session.user.events} editable={true} userId={session.user.id} />
       </Box>
     </Box>
   );

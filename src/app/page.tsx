@@ -1,20 +1,61 @@
-'use client';
-import { signIn, signOut, useSession } from 'next-auth/react';
+import { Box, Heading, Text } from '@chakra-ui/react';
+import Image from 'next/image';
+import sggImage from '../../public/sgg.svg';
+import Link from 'next/link';
 
 export default function Home() {
-  const { data: session } = useSession();
-  if (session) {
-    return (
-      <>
-        Signed in as {session.user.name} <br />
-        <button onClick={() => signOut()}>Sign out</button>
-      </>
-    );
-  }
   return (
-    <>
-      Not signed in <br />
-      <button onClick={() => signIn()}>Sign in</button>
-    </>
+    <Box className={'page'}>
+      <Image src={sggImage} alt={'logo'} />
+      <Box className={'text-block'}>
+        <Heading size="4xl">Что такое сгг?</Heading>
+        <Text fontSize="xl">
+          Это коллективный челлендж группы стримеров на прохождение игр из стима.
+          <br />
+          Цель: пройти игры с каждого временного отрезка.
+          <br />
+          Временные отрезки с 2024-2025 до 2000-2001
+          <br />
+          При дропе игры участник возвращается на предыдущий временной отрезок.
+        </Text>
+      </Box>
+      <Box className={'text-block'}>
+        <Heading size="4xl">Игра считается пройденной:</Heading>
+        <Text fontSize="xl">
+          1) После финальных титров честного прохождения;
+          <br />
+          2) Прохождение уровня, после которого уровни начинают повторяться;
+          <br />
+          3) Если побить high score
+        </Text>
+      </Box>
+      <Box className={'text-block'}>
+        <Heading size="4xl">Проигравшие</Heading>
+        <Text fontSize="xl">
+          Проигравшими в СГГ считаются не вошедшие в топ 3.
+          <br />
+          Они берут наказание из пула наказаний
+        </Text>
+      </Box>
+      <Box className={'text-block'}>
+        <Heading size="4xl">Полезные ссылки</Heading>
+        <Text fontSize="xl">
+          <Link target={'_blank'} href={'https://discord.gg/nc8fkS7x7E'}>
+            Дискорд
+          </Link>
+          <br />
+          <Link target={'_blank'} href={'https://docs.google.com/document/d/12p7UUci5UtG39VS90wFASjmayxk089gbPTjT0YZvHME/edit?tab=t.0'}>
+            Документ с правилами
+          </Link>
+          <br />
+          <Link
+            target={'_blank'}
+            href={'https://docs.google.com/spreadsheets/d/1IaExmLR9DOHapqynyj-3dlCG4sZ4ET6Dmb_2RFpnYBQ/edit?gid=0#gid=0'}
+          >
+            Список предметов
+          </Link>
+        </Text>
+      </Box>
+    </Box>
   );
 }

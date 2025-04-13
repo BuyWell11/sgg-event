@@ -22,13 +22,14 @@ export default function AddEventForm({ session }: Props) {
       name: Yup.string().required('У ивента должно быть название'),
       comment: Yup.string(),
     }),
-    onSubmit: (values) => {
+    onSubmit: (values, { resetForm }) => {
       const event: SggEventDTO = {
         name: values.name,
         comment: values.comment,
       };
       UserService.addEvent(session.user.id, event);
       update();
+      resetForm();
     },
   });
   return (

@@ -44,6 +44,14 @@ const Header = () => {
           >
             Предметы
           </Button>
+          <Button
+            onClick={() => {
+              router.push(Routes.roulette);
+            }}
+            variant={pathname === Routes.roulette ? 'solid' : 'ghost'}
+          >
+            Рулетка
+          </Button>
           {session && (
             <Button
               onClick={() => {
@@ -52,16 +60,6 @@ const Header = () => {
               variant={pathname === Routes.profile ? 'solid' : 'ghost'}
             >
               Профиль
-            </Button>
-          )}
-          {session && (
-            <Button
-              onClick={() => {
-                router.push(Routes.roulette);
-              }}
-              variant={pathname === Routes.roulette ? 'solid' : 'ghost'}
-            >
-              Рулетка
             </Button>
           )}
         </ButtonGroup>

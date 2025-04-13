@@ -1,18 +1,39 @@
-import { Card, Text } from '@chakra-ui/react';
+'use client';
+import { Card, IconButton, Text } from '@chakra-ui/react';
 import SggGameStatus from './SggGameStatus';
-import React from 'react';
+import React, { useState } from 'react';
 import Game from '../../model/Game';
 import SggEvent from '../../model/SggEvent';
+import { MdDeleteOutline } from 'react-icons/md';
+import ConfirmationModal from './ConfirmationModal';
+import { UserService } from '../../api/UserService';
+import { useSession } from 'next-auth/react';
 
 interface Props {
   item: Game | SggEvent;
+  editable?: boolean;
+  userId?: string;
 }
 
 function isGame(item: Game | SggEvent): item is Game {
   return (item as Game).status !== undefined;
 }
 
-export default function ListItem({ item }: Props) {
+export default function ListItem({ item, editable, userId }: Props) {
+  const { update } = useSession();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const handleConfirm = () => {
+    if (!userId) {
+      return;
+    }
+    if (isGame(item)) {
+      UserService.deleteGame(userId, item.id);
+    } else {
+      UserService.deleteEvent(userId, item.id);
+    }
+    update();
+  };
+
   return (
     <Card.Root width="320px" padding="2">
       <Card.Body gap="2" padding="2">
@@ -34,6 +55,14 @@ export default function ListItem({ item }: Props) {
               minute: '2-digit',
             })}
           </Text>
+        )}
+        {editable && (
+          <>
+            <IconButton aria-label="delete" onClick={() => setIsModalOpen(true)}>
+              <MdDeleteOutline />
+            </IconButton>
+            <ConfirmationModal isOpen={isModalOpen} onConfirm={handleConfirm} onCancel={() => setIsModalOpen(false)} />
+          </>
         )}
       </Card.Footer>
     </Card.Root>

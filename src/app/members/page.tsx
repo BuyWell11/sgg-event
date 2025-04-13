@@ -16,3 +16,5 @@ export default async function Members() {
     </Box>
   );
 }
+
+export const dynamic = 'force-dynamic';
