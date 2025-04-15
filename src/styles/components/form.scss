@@ -4,18 +4,25 @@
   border: black solid 1px;
   padding: 10px;
   gap: 4px;
+
+  input, textarea, select {
+    border: #444444 solid 1px;
+    background-color: white;
+    color: black;
+  }
+
   input {
-    border: #444444 solid 1px;
+    padding: 4px;
   }
-  textarea {
-    border: #444444 solid 1px;
-  }
+
   button {
     border: #000000 solid 1px;
+
+    &:active {
+      background-color: #c4c4c4;
+    }
   }
-  button:active {
-    background-color: #c4c4c4;
-  }
+
   .error-text {
     color: #ff0000;
   }

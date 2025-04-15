@@ -24,7 +24,7 @@ const Header = () => {
             onClick={() => {
               router.push(Routes.members);
             }}
-            variant={pathname === Routes.members ? 'solid' : 'ghost'}
+            variant={pathname === Routes.members ? 'subtle' : 'solid'}
           >
             Участники
           </Button>
@@ -32,7 +32,7 @@ const Header = () => {
             onClick={() => {
               router.push(Routes.rules);
             }}
-            variant={pathname === Routes.rules ? 'solid' : 'ghost'}
+            variant={pathname === Routes.rules ? 'subtle' : 'solid'}
           >
             Правила
           </Button>
@@ -40,7 +40,7 @@ const Header = () => {
             onClick={() => {
               router.push(Routes.items);
             }}
-            variant={pathname === Routes.items ? 'solid' : 'ghost'}
+            variant={pathname === Routes.items ? 'subtle' : 'solid'}
           >
             Предметы
           </Button>
@@ -48,7 +48,7 @@ const Header = () => {
             onClick={() => {
               router.push(Routes.roulette);
             }}
-            variant={pathname === Routes.roulette ? 'solid' : 'ghost'}
+            variant={pathname === Routes.roulette ? 'subtle' : 'solid'}
           >
             Рулетка
           </Button>
@@ -57,7 +57,7 @@ const Header = () => {
               onClick={() => {
                 router.push(Routes.profile);
               }}
-              variant={pathname === Routes.profile ? 'solid' : 'ghost'}
+              variant={pathname === Routes.profile ? 'subtle' : 'solid'}
             >
               Профиль
             </Button>

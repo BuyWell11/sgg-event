@@ -30,7 +30,7 @@ export const UserService = {
         headers: {
           'Content-Type': 'application/json',
         },
-        cache: 'force-cache',
+        cache: 'no-cache',
       });
 
       if (!response.ok) {
