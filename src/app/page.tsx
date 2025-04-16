@@ -44,6 +44,10 @@ export default function Home() {
             Дискорд
           </Link>
           <br />
+          <Link target={'_blank'} href={'https://t.me/sgg_y2k'}>
+            Телега
+          </Link>
+          <br />
           <Link target={'_blank'} href={'https://www.donationalerts.com/r/buywell'}>
             Поддержать автора сайта
           </Link>
