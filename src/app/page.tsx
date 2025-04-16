@@ -14,7 +14,7 @@ export default function Home() {
           <br />
           Цель: пройти игры с каждого временного отрезка.
           <br />
-          Временные отрезки с 2024-2025 до 2000-2001
+          Временные отрезки с 2024-2025 до 2000-2001.
           <br />
           При дропе игры участник возвращается на предыдущий временной отрезок.
         </Text>
@@ -26,7 +26,7 @@ export default function Home() {
           <br />
           2) Прохождение уровня, после которого уровни начинают повторяться;
           <br />
-          3) Если побить high score
+          3) Если побить high score;
         </Text>
       </Box>
       <Box className={'text-block'}>
@@ -34,7 +34,7 @@ export default function Home() {
         <Text fontSize="xl">
           Проигравшими в СГГ считаются не вошедшие в топ 3.
           <br />
-          Они берут наказание из пула наказаний
+          Они берут наказание из пула наказаний.
         </Text>
       </Box>
       <Box className={'text-block'}>
@@ -44,16 +44,10 @@ export default function Home() {
             Дискорд
           </Link>
           <br />
-          <Link target={'_blank'} href={'https://docs.google.com/document/d/12p7UUci5UtG39VS90wFASjmayxk089gbPTjT0YZvHME/edit?tab=t.0'}>
-            Документ с правилами
+          <Link target={'_blank'} href={'https://www.donationalerts.com/r/buywell'}>
+            Поддержать автора сайта
           </Link>
           <br />
-          <Link
-            target={'_blank'}
-            href={'https://docs.google.com/spreadsheets/d/1IaExmLR9DOHapqynyj-3dlCG4sZ4ET6Dmb_2RFpnYBQ/edit?gid=0#gid=0'}
-          >
-            Список предметов
-          </Link>
         </Text>
       </Box>
     </Box>

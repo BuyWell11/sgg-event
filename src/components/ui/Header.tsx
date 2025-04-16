@@ -22,6 +22,14 @@ const Header = () => {
         <ButtonGroup size="sm">
           <Button
             onClick={() => {
+              router.push(Routes.main);
+            }}
+            variant={pathname === Routes.main ? 'subtle' : 'solid'}
+          >
+            Главная
+          </Button>
+          <Button
+            onClick={() => {
               router.push(Routes.members);
             }}
             variant={pathname === Routes.members ? 'subtle' : 'solid'}

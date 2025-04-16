@@ -3,6 +3,7 @@ import sggItems from '@/data/sggItem';
 import Image from 'next/image';
 
 export default function Items() {
+  const sggItemsFiltered = sggItems.filter((sggItem) => sggItem.name !== 'Ничего');
   return (
     <Table.ScrollArea borderWidth="1px" rounded="md">
       <Table.Root size="md" variant={'outline'} stickyHeader showColumnBorder>
@@ -15,7 +16,7 @@ export default function Items() {
         </Table.Header>
 
         <Table.Body>
-          {sggItems.map((item, index) => (
+          {sggItemsFiltered.map((item, index) => (
             <Table.Row key={index}>
               <Table.Cell>
                 <Flex justify="center" align="center">

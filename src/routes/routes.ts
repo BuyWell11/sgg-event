@@ -1,4 +1,5 @@
 const Routes = {
+  main: '/',
   members: '/members',
   rules: '/rules',
   profile: '/profile',

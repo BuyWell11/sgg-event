@@ -96,7 +96,7 @@ const sggItems: SggItem[] = [
     description: 'Выбор игры с промежутка (игра должна длиться дольше 8-и часов на howlongtobeat)',
   },
   {
-    name: 'Абсолютное певец',
+    name: 'Абсолютное пение',
     logo: pevec,
     description: 'Плюс 3 ролла с караоке',
   },
@@ -118,7 +118,7 @@ const sggItems: SggItem[] = [
   {
     name: 'Абсолютная игра',
     logo: gaming,
-    description: 'Плюс 3 ролла с играми',
+    description: 'Плюс три игры на промежутке',
   },
   {
     name: 'Зеркало',
