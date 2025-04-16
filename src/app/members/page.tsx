@@ -8,7 +8,7 @@ export default async function Members() {
 
   return (
     <Box className="page">
-      <Grid templateColumns="repeat(4, 1fr)" gap="6">
+      <Grid templateColumns="repeat(3, 1fr)" gap="6">
         {users.map((user) => (
           <PlayerCard key={user.id} user={user} />
         ))}
