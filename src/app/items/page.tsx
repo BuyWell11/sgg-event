@@ -11,6 +11,7 @@ export default function Items() {
           <Table.Row bg="bg.subtle">
             <Table.ColumnHeader textAlign="center">Изображение</Table.ColumnHeader>
             <Table.ColumnHeader textAlign="center">Название</Table.ColumnHeader>
+            <Table.ColumnHeader textAlign="center">Тип</Table.ColumnHeader>
             <Table.ColumnHeader textAlign="center">Описание</Table.ColumnHeader>
           </Table.Row>
         </Table.Header>
@@ -24,6 +25,7 @@ export default function Items() {
                 </Flex>
               </Table.Cell>
               <Table.Cell textAlign="center">{item.name}</Table.Cell>
+              <Table.Cell textAlign="center">{item.type}</Table.Cell>
               <Table.Cell textAlign="center">{item.description}</Table.Cell>
             </Table.Row>
           ))}
