@@ -135,7 +135,7 @@ const sggItems: SggItem[] = [
     name: 'Абсолютная игра',
     type: 'Шаффлеры',
     logo: gaming,
-    description: 'Плюс 3 игры на промежутке',
+    description: 'Плюс 3 ролла на плюс игру',
   },
   {
     name: 'Зеркало',

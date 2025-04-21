@@ -8,6 +8,7 @@ import sggLogo from '../../../public/sgg.svg';
 import Routes from '../../routes/routes';
 import { useSession } from 'next-auth/react';
 import React from 'react';
+import { signOut } from 'next-auth/react';
 
 const Header = () => {
   const router = useRouter();
@@ -71,7 +72,11 @@ const Header = () => {
             </Button>
           )}
         </ButtonGroup>
-        {!session && (
+        {session ? (
+          <Button size="sm" onClick={() => signOut()}>
+            Выйти
+          </Button>
+        ) : (
           <Link href={Routes.signin}>
             <Button size="sm">Залогиниться</Button>
           </Link>
