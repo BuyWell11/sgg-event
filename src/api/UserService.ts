@@ -50,7 +50,6 @@ export const UserService = {
         headers: {
           'Content-Type': 'application/json',
         },
-        credentials: 'include',
         body: JSON.stringify(game),
       });
 
@@ -71,7 +70,6 @@ export const UserService = {
         headers: {
           'Content-Type': 'application/json',
         },
-        credentials: 'include',
       });
 
       if (!response.ok) {
@@ -91,7 +89,6 @@ export const UserService = {
         headers: {
           'Content-Type': 'application/json',
         },
-        credentials: 'include',
         body: JSON.stringify(event),
       });
 
@@ -112,7 +109,6 @@ export const UserService = {
         headers: {
           'Content-Type': 'application/json',
         },
-        credentials: 'include',
       });
 
       if (!response.ok) {
@@ -132,7 +128,6 @@ export const UserService = {
         headers: {
           'Content-Type': 'application/json',
         },
-        credentials: 'include',
         body: JSON.stringify(dto),
       });
 
