@@ -7,7 +7,7 @@ import SggEvent from '../../model/SggEvent';
 import { MdDeleteOutline } from 'react-icons/md';
 import ConfirmationModal from './ConfirmationModal';
 import { UserService } from '../../api/UserService';
-import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 interface Props {
   item: Game | SggEvent;
@@ -20,7 +20,7 @@ function isGame(item: Game | SggEvent): item is Game {
 }
 
 export default function ListItem({ item, editable, userId }: Props) {
-  const { update } = useSession();
+  const router = useRouter();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleConfirm = () => {
     if (!userId) {
@@ -31,7 +31,7 @@ export default function ListItem({ item, editable, userId }: Props) {
     } else {
       UserService.deleteEvent(userId, item.id);
     }
-    update();
+    router.refresh();
   };
 
   return (

@@ -1,7 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import NextAuth, { DefaultSession } from 'next-auth';
-import Game from '@/model/Game';
-import SggEvent from '@/model/SggEvent';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { JWT } from 'next-auth/jwt';
 
@@ -14,13 +12,6 @@ declare module 'next-auth' {
       /** The user's postal address. */
       id: string;
       name: string;
-      logo: string;
-      channel: string;
-      background?: string;
-      game: string;
-      items: string[];
-      games: Game[];
-      events: SggEvent[];
     };
   }
 }

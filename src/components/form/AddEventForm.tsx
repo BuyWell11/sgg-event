@@ -3,16 +3,15 @@ import { useFormik } from 'formik';
 import '../../styles/components/form.scss';
 import { SggEventDTO } from '@/model/SggEvent';
 import { UserService } from '@/api/UserService';
-import { Session } from 'next-auth';
 import * as Yup from 'yup';
-import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 interface Props {
-  session: Session;
+  userId: string;
 }
 
-export default function AddEventForm({ session }: Props) {
-  const { update } = useSession();
+export default function AddEventForm({ userId }: Props) {
+  const router = useRouter();
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -27,9 +26,9 @@ export default function AddEventForm({ session }: Props) {
         name: values.name,
         comment: values.comment,
       };
-      UserService.addEvent(session.user.id, event);
-      update();
+      UserService.addEvent(userId, event);
       resetForm();
+      router.refresh();
     },
   });
   return (

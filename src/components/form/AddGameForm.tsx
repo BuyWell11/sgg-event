@@ -3,16 +3,16 @@ import { useFormik } from 'formik';
 import { GameDTO, GameStatus } from '@/model/Game';
 import '../../styles/components/form.scss';
 import { UserService } from '@/api/UserService';
-import { Session } from 'next-auth';
 import * as Yup from 'yup';
-import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 interface Props {
-  session: Session;
+  userId: string;
 }
 
-export default function AddGameForm({ session }: Props) {
-  const { update } = useSession();
+export default function AddGameForm({ userId }: Props) {
+  const router = useRouter();
+
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -29,9 +29,9 @@ export default function AddGameForm({ session }: Props) {
         comment: values.comment,
         status: values.status,
       };
-      UserService.addGame(session.user.id, game);
-      update();
+      UserService.addGame(userId, game);
       resetForm();
+      router.refresh();
     },
   });
 

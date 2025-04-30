@@ -2,13 +2,15 @@
 import { useFormik } from 'formik';
 import '../../styles/components/form.scss';
 import { UserService } from '@/api/UserService';
-import { Session } from 'next-auth';
-import { useSession } from 'next-auth/react';
+
 import { UserUpdateDTO } from '@/model/User';
 import sggItems from '@/data/sggItem';
+import { useRouter } from 'next/navigation';
 
 interface Props {
-  session: Session;
+  userId: string;
+  game: string;
+  items: (string | null)[];
 }
 
 interface initialValue {
@@ -18,14 +20,14 @@ interface initialValue {
   item3: string;
 }
 
-export default function UpdateUserForm({ session }: Props) {
-  const { update } = useSession();
-  const items = sggItems;
+export default function UpdateUserForm({ game, items, userId }: Props) {
+  const router = useRouter();
+
   const initialValues: initialValue = {
-    game: session.user.game,
-    item1: session.user.items[0] || sggItems[0].name,
-    item2: session.user.items[1] || sggItems[0].name,
-    item3: session.user.items[2] || sggItems[0].name,
+    game: game,
+    item1: items[0] || sggItems[0].name,
+    item2: items[1] || sggItems[0].name,
+    item3: items[2] || sggItems[0].name,
   };
   const formik = useFormik({
     initialValues,
@@ -34,8 +36,8 @@ export default function UpdateUserForm({ session }: Props) {
         game: values.game === '' ? undefined : values.game,
         items: [values.item1, values.item2, values.item3],
       };
-      UserService.updateUser(session.user.id, dto);
-      update();
+      UserService.updateUser(userId, dto);
+      router.refresh();
     },
   });
   return (
@@ -44,7 +46,7 @@ export default function UpdateUserForm({ session }: Props) {
       <input id="game" name="game" type="text" onChange={formik.handleChange} value={formik.values.game} />
       <label htmlFor="item1">Айтем 1</label>
       <select id="item1" name="item1" onChange={formik.handleChange} value={formik.values.item1}>
-        {items.map((item, index) => (
+        {sggItems.map((item, index) => (
           <option key={index} value={item.name}>
             {item.name}
           </option>
@@ -52,7 +54,7 @@ export default function UpdateUserForm({ session }: Props) {
       </select>
       <label htmlFor="item2">Айтем 2</label>
       <select id="item2" name="item2" onChange={formik.handleChange} value={formik.values.item2}>
-        {items.map((item, index) => (
+        {sggItems.map((item, index) => (
           <option key={index} value={item.name}>
             {item.name}
           </option>
@@ -60,7 +62,7 @@ export default function UpdateUserForm({ session }: Props) {
       </select>
       <label htmlFor="item3">Айтем 3</label>
       <select id="item3" name="item3" onChange={formik.handleChange} value={formik.values.item3}>
-        {items.map((item, index) => (
+        {sggItems.map((item, index) => (
           <option key={index} value={item.name}>
             {item.name}
           </option>
