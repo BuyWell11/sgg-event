@@ -1,4 +1,4 @@
-import { Flex, Table } from '@chakra-ui/react';
+import { Box, Flex, Table } from '@chakra-ui/react';
 import sggItems from '@/data/sggItem';
 import Image from 'next/image';
 
@@ -25,8 +25,12 @@ export default function Items() {
                 </Flex>
               </Table.Cell>
               <Table.Cell textAlign="center">{item.name}</Table.Cell>
-              <Table.Cell textAlign="center">{item.type}</Table.Cell>
-              <Table.Cell textAlign="center">{item.description}</Table.Cell>
+              <Table.Cell textAlign="center" p={'1'}>
+                {item.type}
+              </Table.Cell>
+              <Table.Cell textAlign="center">
+                <Box style={{ whiteSpace: 'normal', textAlign: 'center' }}>{item.description}</Box>
+              </Table.Cell>
             </Table.Row>
           ))}
         </Table.Body>
